@@ -17,3 +17,4 @@ func _physics_process(delta):
 	
 	elif direction!= Vector3.ZERO:
 		apply_central_force()direction.normalized()*move_force
+		
