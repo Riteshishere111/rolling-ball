@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="RollingBall"
-run/main_scene="uid://dhmmh2uamjce4"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 

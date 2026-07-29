@@ -1,3 +1,112 @@
 [gd_scene format=3 uid="uid://dhmmh2uamjce4"]
 
+[ext_resource type="Script" uid="uid://dx1trkxyxp37u" path="res://scenes/player_ball.gd" id="1_elqb8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkdpk"]
+albedo_color = Color(0.24705882, 0.7254902, 0.3882353, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k56px"]
+material = SubResource("StandardMaterial3D_vkdpk")
+size = Vector3(70, 0.5, 70)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wp5od"]
+size = Vector3(70, 0.5, 70)
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_dagrs"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vkdpk"]
+specular_texture = SubResource("CurveXYZTexture_dagrs")
+specular_color = Color(0.31677377, 0.60904986, 1.3190558, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k56px"]
+albedo_color = Color(0.1076594, 0.917846, 0.9250385, 1)
+albedo_texture = SubResource("CanvasTexture_vkdpk")
+
+[sub_resource type="SphereMesh" id="SphereMesh_wp5od"]
+material = SubResource("StandardMaterial3D_k56px")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wp5od"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elqb8"]
+albedo_color = Color(0.16146421, 0.44241196, 0.24791235, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wp5od"]
+material = SubResource("StandardMaterial3D_elqb8")
+size = Vector3(70, 5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkdpk"]
+size = Vector3(70, 5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_530h6"]
+size = Vector3(70, 5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dagrs"]
+albedo_color = Color(0.16078432, 0.44313726, 0.24705882, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vkdpk"]
+material = SubResource("StandardMaterial3D_dagrs")
+size = Vector3(70, 5, 0.5)
+
 [node name="Main" type="Node3D" unique_id=1753671749]
+
+[node name="Groud_body" type="StaticBody3D" parent="." unique_id=280485991]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Groud_body" unique_id=1815167123]
+mesh = SubResource("BoxMesh_k56px")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Groud_body" unique_id=727881041]
+shape = SubResource("BoxShape3D_wp5od")
+
+[node name="player-ball" type="RigidBody3D" parent="." unique_id=1855298944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0.8, 0)
+script = ExtResource("1_elqb8")
+move_force = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player-ball" unique_id=629955801]
+mesh = SubResource("SphereMesh_wp5od")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player-ball" unique_id=658171059]
+shape = SubResource("SphereShape3D_wp5od")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=408608589]
+transform = Transform3D(-4.371139e-08, -0.017452406, 0.9998477, 0, 0.9998477, 0.017452406, -1, 7.628689e-10, -4.370473e-08, 45, 8, 0)
+
+[node name="Walls" type="Node3D" parent="." unique_id=1218464983]
+
+[node name="Wall_1" type="StaticBody3D" parent="Walls" unique_id=1736297077]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Wall_1" unique_id=1923038564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.814342, 34.71154)
+mesh = SubResource("BoxMesh_wp5od")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall_1" unique_id=925904894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.814, 34.71)
+shape = SubResource("BoxShape3D_vkdpk")
+
+[node name="Wall_2" type="StaticBody3D" parent="Walls" unique_id=2084695788]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall_2" unique_id=977930313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.814, -34.71)
+shape = SubResource("BoxShape3D_530h6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Wall_2" unique_id=2019259600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.814, -34.71)
+mesh = SubResource("BoxMesh_vkdpk")
+
+[node name="Wall_3" type="StaticBody3D" parent="Walls" unique_id=509278253]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall_3" unique_id=1295780045]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Wall_3" unique_id=1238036878]
+visible = false
+
+[node name="Wall_4" type="StaticBody3D" parent="Walls" unique_id=1675272548]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall_4" unique_id=1450484655]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Wall_4" unique_id=914992477]
+visible = false
