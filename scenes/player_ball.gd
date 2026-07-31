@@ -6,15 +6,15 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):
 		direction.x+= 1
 	
-	elif Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_left"):
 		direction.x+= -1
 	
-	elif Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_up"):
 		direction.z-= 1
 	
-	elif Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_down"):
 		direction.z+= 1
 	
-	elif direction!= Vector3.ZERO:
-		apply_central_force()direction.normalized()*move_force
+	if direction!= Vector3.ZERO:
+		apply_central_force(direction.normalized()*move_force)
 		
