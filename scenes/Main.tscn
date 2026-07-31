@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dhmmh2uamjce4"]
 
 [ext_resource type="Script" uid="uid://dx1trkxyxp37u" path="res://scenes/player_ball.gd" id="1_elqb8"]
+[ext_resource type="Script" uid="uid://d37rx3c461tye" path="res://scenes/camera_view.gd" id="2_rvslj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkdpk"]
 albedo_color = Color(0.24705882, 0.7254902, 0.3882353, 1)
@@ -68,28 +69,46 @@ material = SubResource("StandardMaterial3D_o12fo")
 size = Vector3(30.737413, 5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_dagrs"]
-size = Vector3(9.661621, 5, 0.5)
+size = Vector3(8.687256, 5, 0.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dagrs"]
-size = Vector3(6.242, 5, 0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_elqb8"]
+size = Vector3(8.294103, 5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_elqb8"]
 size = Vector3(6.2424316, 5, 0.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dagrs"]
+size = Vector3(6.1759224, 5, 0.5)
+
 [sub_resource type="BoxMesh" id="BoxMesh_rvslj"]
 size = Vector3(6.2424316, 5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rvslj"]
+size = Vector3(6.1759224, 5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0bbpv"]
 size = Vector3(48.472656, 5, 0.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0bbpv"]
+size = Vector3(48.473, 5, 0.5)
+
 [sub_resource type="BoxMesh" id="BoxMesh_rarhs"]
 size = Vector3(6.2265625, 5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rarhs"]
+size = Vector3(6.1759224, 5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_nxtc6"]
 size = Vector3(6.2265625, 5, 0.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vcsgt"]
+size = Vector3(6.1759224, 5, 0.5)
+
 [sub_resource type="BoxMesh" id="BoxMesh_vcsgt"]
 size = Vector3(16.92662, 5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c01mt"]
+size = Vector3(16.92, 5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_c01mt"]
 size = Vector3(16.826721, 5, 0.5)
@@ -102,6 +121,9 @@ size = Vector3(1.7788086, 5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lhr70"]
 size = Vector3(2.3388672, 5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_530h6"]
+size = Vector3(8.552734, 5, 0.5)
 
 [node name="Main" type="Node3D" unique_id=1753671749]
 
@@ -123,9 +145,6 @@ mesh = SubResource("SphereMesh_wp5od")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player-ball" unique_id=658171059]
 shape = SubResource("SphereShape3D_wp5od")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=408608589]
-transform = Transform3D(-4.371139e-08, -0.017452406, 0.9998477, 0, 0.9998477, 0.017452406, -1, 7.628689e-10, -4.370473e-08, 45, 8, 0)
 
 [node name="Walls" type="Node3D" parent="." unique_id=1218464983]
 
@@ -178,12 +197,13 @@ mesh = SubResource("BoxMesh_h4ev4")
 [node name="C-1" type="StaticBody3D" parent="Walls/Center_walls" unique_id=785582178]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Center_walls/C-1" unique_id=723881008]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.064262, 2.7166028, -4.600602)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.551445, 2.7166028, -4.600602)
 mesh = SubResource("BoxMesh_dagrs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Center_walls/C-1" unique_id=1748171934]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.06, 2.717, -4.6)
-shape = SubResource("BoxShape3D_dagrs")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.375788, 2.717, -4.6)
+shape = SubResource("BoxShape3D_elqb8")
+debug_color = Color(0.88, 0, 0, 0.50980395)
 
 [node name="C-2" type="StaticBody3D" parent="Walls/Center_walls" unique_id=1138771595]
 
@@ -192,7 +212,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.453505, 2.7166028, 4.60561
 mesh = SubResource("BoxMesh_elqb8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Center_walls/C-2" unique_id=1959290946]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.455564, 2.717, 4.616677)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.28514, 2.717, 4.616677)
 shape = SubResource("BoxShape3D_dagrs")
 
 [node name="C-3" type="StaticBody3D" parent="Walls/Center_walls" unique_id=1693151003]
@@ -202,8 +222,8 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28.1
 mesh = SubResource("BoxMesh_rvslj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Center_walls/C-3" unique_id=1898303911]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.813877, 2.717, 4.616677)
-shape = SubResource("BoxShape3D_dagrs")
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28.152884, 2.7095923, 7.5178566)
+shape = SubResource("BoxShape3D_rvslj")
 
 [node name="C-4" type="StaticBody3D" parent="Walls/Center_walls" unique_id=924936971]
 
@@ -212,8 +232,8 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 22.1
 mesh = SubResource("BoxMesh_0bbpv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Center_walls/C-4" unique_id=1903853425]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.872625, 2.717, 0.27338362)
-shape = SubResource("BoxShape3D_dagrs")
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 22.11, 2.758, 1.05)
+shape = SubResource("BoxShape3D_0bbpv")
 
 [node name="C-5" type="StaticBody3D" parent="Walls/Center_walls" unique_id=698899925]
 
@@ -222,9 +242,8 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 25.419445, 
 mesh = SubResource("BoxMesh_rarhs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Center_walls/C-5" unique_id=1676586513]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.872625, 2.717, 0.27338362)
-visible = false
-shape = SubResource("BoxShape3D_dagrs")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.418549, 2.758, -7.7)
+shape = SubResource("BoxShape3D_rarhs")
 
 [node name="C-6" type="StaticBody3D" parent="Walls/Center_walls" unique_id=823701198]
 
@@ -233,9 +252,9 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 31.438046, 
 mesh = SubResource("BoxMesh_nxtc6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Center_walls/C-6" unique_id=1439013214]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.872625, 2.717, 0.27338362)
-visible = false
-shape = SubResource("BoxShape3D_dagrs")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.43, 2.758, -11.2)
+shape = SubResource("BoxShape3D_vcsgt")
+debug_color = Color(0.7, 0, 0, 0.41960785)
 
 [node name="C-7" type="StaticBody3D" parent="Walls/Center_walls" unique_id=692261787]
 
@@ -244,8 +263,8 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.9
 mesh = SubResource("BoxMesh_vcsgt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Center_walls/C-7" unique_id=270883212]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.872625, 2.717, 0.27338362)
-shape = SubResource("BoxShape3D_dagrs")
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.91, 2.758, -22.8)
+shape = SubResource("BoxShape3D_c01mt")
 
 [node name="C-8" type="StaticBody3D" parent="Walls/Center_walls" unique_id=711861717]
 
@@ -255,6 +274,7 @@ mesh = SubResource("BoxMesh_c01mt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Center_walls/C-8" unique_id=1974752672]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.872625, 2.717, 0.27338362)
+visible = false
 shape = SubResource("BoxShape3D_dagrs")
 
 [node name="C-9" type="StaticBody3D" parent="Walls/Center_walls" unique_id=1958850472]
@@ -264,7 +284,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 25.035328, 
 mesh = SubResource("BoxMesh_jlsqs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Center_walls/C-9" unique_id=150032335]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.872625, 2.717, 0.27338362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.040321, 2.7773232, -14.4)
 visible = false
 shape = SubResource("BoxShape3D_dagrs")
 
@@ -289,3 +309,17 @@ mesh = SubResource("BoxMesh_lhr70")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.872625, 2.717, 0.27338362)
 visible = false
 shape = SubResource("BoxShape3D_dagrs")
+
+[node name="C-12" type="StaticBody3D" parent="Walls/Center_walls" unique_id=629562470]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Center_walls/C-12" unique_id=1231141899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.215298, 2.717, 13.691968)
+mesh = SubResource("BoxMesh_530h6")
+
+[node name="CameraPView" type="Node3D" parent="." unique_id=946394621 node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 8)
+script = ExtResource("2_rvslj")
+target = NodePath("../player-ball")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPView" unique_id=408608589]
+transform = Transform3D(-0.006002094, -0.9725492, 0.23262013, -0.023282744, 0.23269717, 0.97227055, -0.9997109, 0.00041962438, -0.024040284, 21.221304, 19.956106, -6.7981577)
